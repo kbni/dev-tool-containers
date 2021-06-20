@@ -13,8 +13,8 @@ Currently includes:
 * [rediscommander](https://github.com/joeferner/redis-commander): web UI for Redis
 * [mongodb](https://www.mongodb.com/): document store/NoSQL DB
 * [mongoexpress](https://github.com/mongo-express/mongo-express): web UI for MongoDB
-* [postgres](https://www.postgresql.org/): rdbms
-* [pgadmin](https://www.pgadmin.org/): PostgreSQL is better than MySQL
+* [postgres](https://www.postgresql.org/): PostgreSQL is better than MySQL
+* [pgadmin](https://www.pgadmin.org/): web UI for PostgreSQL
 
 Oh, and there's probably some other nonsense in here, too.
 
