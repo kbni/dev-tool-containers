@@ -1,0 +1,8 @@
+location /rabbitmq/ {
+	proxy_pass http://127.0.0.1:15672/;
+	proxy_set_header Cookie "";
+}
+location /rabbitmq/api/ {
+	proxy_pass http://127.0.0.1:15672/api/;
+	proxy_set_header Cookie "";
+}

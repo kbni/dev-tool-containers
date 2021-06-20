@@ -1,0 +1,8 @@
+location /rebrow/ {
+	proxy_pass http://127.0.0.1:5001/;
+	sub_filter_once off;
+	sub_filter 'href="/' 'href="/rebrow/';
+	sub_filter 'src="/' 'src="/rebrow/';
+	sub_filter '<input id="host" name="host" value="localhost" class="form-control"'
+	           '<input id="host" name="host" value="redis" class="form-control"';
+}

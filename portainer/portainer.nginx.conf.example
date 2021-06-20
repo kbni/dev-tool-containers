@@ -1,0 +1,16 @@
+location /portainer/ {
+	proxy_set_header Connection "";
+	proxy_pass http://127.0.0.1:9999/;
+}
+location /portainer/api/ {
+	auth_basic off;
+	proxy_set_header Connection "";
+	proxy_pass http://127.0.0.1:9999/api/;
+}
+location /portainer/api/websocket/ {
+	auth_basic off;
+	proxy_set_header Upgrade $http_upgrade;
+	proxy_set_header Connection "upgrade";
+	proxy_http_version 1.1;
+	proxy_pass http://127.0.0.1:9999/api/websocket/;
+}

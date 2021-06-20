@@ -1,0 +1,16 @@
+location /mitmproxy/ {
+	proxy_pass http://localhost:8889/;
+	proxy_set_header X-Forwarded-Host $host;
+	proxy_set_header X-Forwarded-Server $host;
+	sub_filter_once off;
+	sub_filter 'href="/' 'href="/mitmproxy/';
+	sub_filter 'src="/' 'src="/mitmproxy/';
+	sub_filter 'location.origin.replace("http","ws")+"/updates"'
+	           'location.origin.replace("http","ws")+"/mitmproxy/updates"';
+	proxy_set_header Upgrade $http_upgrade;
+	proxy_set_header Connection "upgrade";
+	proxy_http_version 1.1;
+
+	# Warning: do make sure you add some authentication using auth_request or similar
+	# because otherwise there will be no authentication to access mitmproxy!
+}

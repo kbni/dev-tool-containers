@@ -1,0 +1,9 @@
+location /doc/ {
+	proxy_pass http://127.0.0.1:3000/;
+	sub_filter_once off;
+	sub_filter 'href="/' 'href="/doc/';
+	sub_filter 'src="/' 'src="/doc/';
+
+	# Warning: do make sure you add some authentication using auth_request or similar
+	# because otherwise there will be no authentication to access madness!
+}
