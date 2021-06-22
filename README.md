@@ -15,6 +15,7 @@ Currently includes:
 * [mongoexpress](https://github.com/mongo-express/mongo-express): web UI for MongoDB
 * [postgres](https://www.postgresql.org/): PostgreSQL is better than MySQL
 * [pgadmin](https://www.pgadmin.org/): web UI for PostgreSQL
+* [crontabui](https://github.com/alseambusher/crontab-ui): web UI for crontab
 
 Oh, and there's probably some other nonsense in here, too.
 

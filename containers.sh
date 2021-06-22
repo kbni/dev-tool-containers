@@ -84,8 +84,15 @@ create_container mongoexpress \
 create_container mitmproxy \
     "test_netcat localhost 8888" \
     -v mitmproxy:/home/mitmproxy/.mitmproxy \
+    -v "${SCRIPT_DIR}/mitmproxy/app.py":/usr/lib/python3.8/site-packages/mitmproxy/tools/web/app.py \
     -p 8888:8888 \
     -p 8889:8889 \
     mitmproxy/mitmproxy \
-    mitmweb --web-port 8889 --web-host 0.0.0.0 --listen-port 8888 --listen-host 0.0.0.0 --no-web-open-browser
+    mitmweb -v --web-port 8889 --web-host 0.0.0.0 --listen-port 8888 --listen-host 0.0.0.0 --no-web-open-browser
 
+create_container crontabui \
+    "test_netcat localhost 8085" \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v crontabui:/crontab-ui/crontabs/ \
+    -p 8085:8085 \
+    devtools-crontabui

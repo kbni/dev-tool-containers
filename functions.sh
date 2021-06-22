@@ -69,6 +69,14 @@ create_container() {
         docker rm "$container_id" &> /dev/null
     fi
 
+    if [ -f "${SCRIPT_DIR}/${container_name}/Dockerfile" ]; then
+        ( cd "${SCRIPT_DIR}/${container_name}" && docker build -t "devtools-${container_name}" . )
+        if [ $? -ne 0 ]; then
+            echo -e "... ${RED}failed to build container${RESET}"
+            return
+        fi
+    fi
+
     addn_args=()
 
     if [ -f "${SCRIPT_DIR}/${container_name}/${container_name}.env" ]; then
